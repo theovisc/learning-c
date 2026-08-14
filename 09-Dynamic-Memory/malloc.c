@@ -9,14 +9,22 @@ int main(){
 
     char* grades = malloc(sizeof(char) * number);
 
+    if(grades == NULL){
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
     for(int i = 0; i < number; i++){
-        printf("Enter a grade: ");
+        printf("Enter grade #%d: ", i+1);
         scanf(" %c", &grades[i]);
     }
 
     for(int i = 0; i < number; i++){
         printf("%c\n", grades[i]);
     }
+
+    free(grades);
+    grades = NULL;
 
 
     return 0;
